@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Washboard</string>
+
+    <string name="landing_login_button">Login</string>
+    <string name="landing_register_button">Register</string>
+
+    <string name="login_login_button">Login</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_username_label">Username</string>
+    <string name="login_unknown_error_message">An unexpected error occurred.</string>
+    <string name="login_unauthorized_error_message">Invalid username or password.</string>
+
+    <string name="registration_register_button">Register</string>
+
+    <string name="appbar_title_library">Library</string>
+    <string name="appbar_action_logout">Logout</string>
+    <string name="bottom_navigation_home_label">Home</string>
+    <string name="bottom_navigation_library_label">Library</string>
+    <string name="bottom_navigation_series_label">Series</string>
+    <string name="bottom_navigation_collections_label">Collections</string>
+    <string name="bottom_navigation_authors_label">Authors</string>
+
+    <string name="home_section_discover">Discover</string>
+    <string name="home_section_continue_listening">Continue Listening</string>
+    <string name="home_section_listen_again">Listen Again</string>
+
+    <string name="library_item_content_description">%s cover</string>
+
+    <string name="author_list_author_content_description">%s photo</string>
+
+    <string name="series_list_series_content_descriptions">%s cover</string>
+</resources>

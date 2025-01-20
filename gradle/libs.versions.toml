@@ -1,0 +1,142 @@
+[versions]
+# Keep in mind IntelliJ IDEA compatablility when updating AGP
+agp = "8.7.3"
+minSdk = "24"
+targetSdk = "35"
+compileSdk = "35"
+buildTools = "35.0.0"
+arrow = "2.0.0"
+coil = "3.0.4"
+collections = "0.3.8"
+compose-multiplatform = "1.7.3"
+compose-navigation = "2.8.0-alpha12"
+compose-viewmodel = "2.8.4"
+compose-rules = "0.4.22"
+coroutines = "1.10.1"
+datastore = "1.1.2"
+datetime = "0.6.1"
+detekt = "1.23.7"
+kermit = "2.0.5"
+kotest = "5.9.1"
+kotlin = "2.1.0"
+kotlin-inject = "0.7.2"
+kotlin-inject-anvil = "0.1.2"
+ksp = "2.1.0-1.0.29"
+ktor = "3.0.3"
+ktlint = "1.3.1"
+ktorfit = "2.2.0"
+okio = "3.10.2"
+serialization = "1.8.0"
+sqldelight = "2.0.2"
+store = "5.1.0-alpha05"
+
+[plugins]
+doctor = "com.osacky.doctor:0.10.0"
+kotest = { id = "io.kotest.multiplatform", version.ref = "kotest" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+gradle-cachefix = "org.gradle.android.cache-fix:3.0.1"
+android-lint = { id = "com.android.lint", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+ktlint = "org.jlleitschuh.gradle.ktlint:12.1.1"
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+buildkonfig = "com.codingfeline.buildkonfig:0.15.2"
+openapi-generator = "org.openapi.generator:7.9.0"
+versions-update = "nl.littlerobots.version-catalog-update:0.8.5"
+
+[bundles]
+arrow = [
+    "arrow-core",
+    "arrow-coroutines",
+]
+coil = [
+    "coil-cache-control",
+    "coil-compose",
+    "coil-ktor",
+]
+ktor-client = [
+    "ktor-client-auth",
+    "ktor-client-cio",
+    "ktor-client-content",
+    "ktor-client-core",
+    "ktor-client-logging",
+    "ktor-serialization-kotlinx-json",
+]
+ktor-server = [
+    "ktor-server-auth",
+    "ktor-server-core",
+    "ktor-server-engine",
+    "ktor-server-config-yaml",
+    "ktor-server-content-negotiation",
+    "ktor-server-resources",
+    "ktor-serialization-kotlinx-json",
+]
+
+[libraries]
+androidx-activity-compose = "androidx.activity:activity-compose:1.10.0"
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+arrow-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
+coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-cache-control = { module = "io.coil-kt.coil3:coil-network-cache-control", version.ref = "coil" }
+compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
+detekt-arrow = "com.wolt.arrow.detekt:rules:0.5.0"
+detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "compose-rules" }
+desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.1.4"
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+kotest-assertions-arrow = "io.kotest.extensions:kotest-assertions-arrow:2.0.0"
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
+kotlininject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime-kmp", version.ref = "kotlin-inject" }
+kotlininject-anvil-compiler = { module = "software.amazon.lastmile.kotlin.inject.anvil:compiler", version.ref = "kotlin-inject-anvil" }
+kotlininject-anvil-runtime = { module = "software.amazon.lastmile.kotlin.inject.anvil:runtime", version.ref = "kotlin-inject-anvil" }
+kotlininject-anvil-runtime-optional = { module = "software.amazon.lastmile.kotlin.inject.anvil:runtime-optional", version.ref = "kotlin-inject-anvil" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
+kotlinx-collections = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "collections" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+ktlint-compose = { module = "io.nlopez.compose.rules:ktlint", version.ref = "compose-rules" }
+ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib-light", version.ref = "ktorfit" }
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+ktor-server-engine = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
+ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+logback = "ch.qos.logback:logback-classic:1.5.6"
+molecule = "app.cash.molecule:molecule-runtime:2.0.0"
+okio-fakefs = { module = "com.squareup.okio:okio-fakefilesystem", version.ref = "okio" }
+sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
+turbine = "app.cash.turbine:turbine:1.2.0"
+# Build logic dependencies
+gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
+gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
