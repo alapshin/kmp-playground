@@ -1,3 +1,5 @@
+.direnv
+
 *.iml
 .DS_Store
 
