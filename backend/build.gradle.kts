@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.sqldelight)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
+
+    id("dev.bitbakery.gradle.detekt")
+    id("dev.bitbakery.gradle.ktlint")
 }
 
 group = "dev.bitbakery.boilerplate"

@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 
     id("dev.bitbakery.gradle.compose")
+    id("dev.bitbakery.gradle.detekt")
+    id("dev.bitbakery.gradle.ktlint")
     id("dev.bitbakery.gradle.android.library")
     id("dev.bitbakery.gradle.kotlin.multiplatform")
 
@@ -150,4 +152,3 @@ sqldelight {
 compose.resources {
     packageOfResClass = "dev.bitbakery.boilerplate.shared.resources"
 }
-

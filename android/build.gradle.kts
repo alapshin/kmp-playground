@@ -1,6 +1,8 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 
 plugins {
+    id("dev.bitbakery.gradle.detekt")
+    id("dev.bitbakery.gradle.ktlint")
     id("dev.bitbakery.gradle.compose")
     id("dev.bitbakery.gradle.android.application")
     id("dev.bitbakery.gradle.kotlin.multiplatform")

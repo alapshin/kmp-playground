@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotest)
 
+    id("dev.bitbakery.gradle.detekt")
+    id("dev.bitbakery.gradle.ktlint")
     id("dev.bitbakery.gradle.android.library")
     id("dev.bitbakery.gradle.kotlin.multiplatform")
 }

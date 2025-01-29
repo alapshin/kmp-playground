@@ -92,8 +92,8 @@ coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" 
 coil-cache-control = { module = "io.coil-kt.coil3:coil-network-cache-control", version.ref = "coil" }
 compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
-detekt-arrow = "com.wolt.arrow.detekt:rules:0.5.0"
-detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "compose-rules" }
+detekt-rules-arrow = "com.wolt.arrow.detekt:rules:0.5.0"
+detekt-rules-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "compose-rules" }
 desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.1.4"
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kotest-assertions-arrow = "io.kotest.extensions:kotest-assertions-arrow:2.0.0"
@@ -136,6 +136,8 @@ sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", 
 store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
 turbine = "app.cash.turbine:turbine:1.2.0"
 # Build logic dependencies
+gradle-plugin-ktlint = "org.jlleitschuh.gradle:ktlint-gradle:12.1.1"
+gradle-plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }

@@ -7,10 +7,27 @@ dependencies {
     compileOnly(libs.gradle.plugin.android)
     compileOnly(libs.gradle.plugin.compose)
     compileOnly(libs.gradle.plugin.compose.compiler)
+    compileOnly(libs.gradle.plugin.detekt)
+    compileOnly(libs.gradle.plugin.ktlint)
+}
+
+tasks {
+    validatePlugins {
+        failOnWarning = true
+        enableStricterValidation = true
+    }
 }
 
 gradlePlugin {
     plugins {
+        register("detekt") {
+            id = "dev.bitbakery.gradle.detekt"
+            implementationClass = "dev.bitbakery.gradle.DetektConventionPlugin"
+        }
+        register("ktlint") {
+            id = "dev.bitbakery.gradle.ktlint"
+            implementationClass = "dev.bitbakery.gradle.KtLintConventionPlugin"
+        }
         register("compose-multiplatform") {
             id = "dev.bitbakery.gradle.compose"
             implementationClass = "dev.bitbakery.gradle.ComposeMultiplatformConventionPlugin"
