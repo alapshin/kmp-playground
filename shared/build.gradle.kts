@@ -31,17 +31,11 @@ dependencies {
 }
 
 kotlin {
+    compilerOptions {
+        optIn.add("coil3.annotation.ExperimentalCoilApi")
+    }
     @Suppress("UnusedPrivateMember")
     sourceSets {
-        all {
-            languageSettings.apply {
-                optIn("kotlin.RequiresOptIn")
-                optIn("kotlin.uuid.ExperimentalUuidApi")
-                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-                optIn("androidx.compose.material3.ExperimentalMaterial3Api")
-                optIn("coil3.annotation.ExperimentalCoilApi")
-            }
-        }
         commonMain {
             dependencies {
                 implementation(projects.arch)

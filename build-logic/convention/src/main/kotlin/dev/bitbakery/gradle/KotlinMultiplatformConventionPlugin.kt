@@ -1,6 +1,6 @@
 package dev.bitbakery.gradle
 
-import dev.bitbakery.gradle.ext.configureKotlin
+import dev.bitbakery.gradle.ext.configureKotlinMultiplatform
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.internal.extensions.stdlib.capitalized
@@ -34,7 +34,7 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
             }
         }
 
-        configureKotlin()
+        configureKotlinMultiplatform()
     }
 }
 

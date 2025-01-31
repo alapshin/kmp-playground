@@ -1,6 +1,6 @@
 package dev.bitbakery.gradle
 
-import dev.bitbakery.gradle.ext.configureKotlin
+import dev.bitbakery.gradle.ext.configureKotlinMultiplatform
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -10,6 +10,6 @@ class KotlinAndroidConventionPlugin : Plugin<Project> {
             apply("org.jetbrains.kotlin.android")
         }
 
-        configureKotlin()
+        configureKotlinMultiplatform()
     }
 }

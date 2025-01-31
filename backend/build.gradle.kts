@@ -3,11 +3,11 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktor)
     alias(libs.plugins.sqldelight)
-    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
 
     id("dev.bitbakery.gradle.detekt")
     id("dev.bitbakery.gradle.ktlint")
+    id("dev.bitbakery.gradle.kotlin.jvm")
 }
 
 group = "dev.bitbakery.boilerplate"

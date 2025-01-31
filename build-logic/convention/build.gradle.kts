@@ -44,7 +44,11 @@ gradlePlugin {
             id = "dev.bitbakery.gradle.kotlin.android"
             implementationClass = "dev.bitbakery.gradle.KotlinAndroidConventionPlugin"
         }
-        register("kotlin-multiplatfomr") {
+        register("kotlin-jvm") {
+            id = "dev.bitbakery.gradle.kotlin.jvm"
+            implementationClass = "dev.bitbakery.gradle.KotlinJvmConventionPlugin"
+        }
+        register("kotlin-multiplatform") {
             id = "dev.bitbakery.gradle.kotlin.multiplatform"
             implementationClass = "dev.bitbakery.gradle.KotlinMultiplatformConventionPlugin"
         }
