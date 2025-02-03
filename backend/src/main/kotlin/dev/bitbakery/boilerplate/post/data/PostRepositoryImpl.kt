@@ -6,6 +6,7 @@ import me.tatarka.inject.annotations.Inject
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
+import kotlin.uuid.Uuid
 
 @Inject
 @SingleIn(AppScope::class)
@@ -15,9 +16,11 @@ class PostRepositoryImpl(
 ) : PostRepository {
     override fun getPosts(): List<PostEntity> =
         database.postQueries
-            .selectAll { id, title, content, createdAt ->
+            .selectAll { id, uuid, userId, title, content, createdAt ->
                 PostEntity(
                     id = id,
+                    uuid = Uuid.parse(uuid),
+                    userId = userId,
                     title = title,
                     content = content,
                     createdAt = Instant.parse(createdAt),

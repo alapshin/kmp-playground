@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS post (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    uuid TEXT UNIQUE DEFAULT (uuid_str(uuid())),
+    uuid TEXT NOT NULL UNIQUE DEFAULT (uuid_str(uuid())),
     user_id INTEGER NOT NULL,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS post (
 );
 
 selectAll:
-SELECT id, title, content, created_at
+SELECT id, uuid, user_id, title, content, created_at
 FROM post;

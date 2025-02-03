@@ -16,6 +16,8 @@ class PostServiceImpl(
         repository.getPosts().map { entity ->
             Post(
                 id = entity.id,
+                uuid = entity.uuid,
+                userId = entity.userId,
                 title = entity.title,
                 content = entity.content,
                 createdAt = entity.createdAt,
