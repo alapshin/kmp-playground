@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    compileOnly(libs.gradle.plugin.ksp)
     compileOnly(libs.gradle.plugin.kotlin)
     compileOnly(libs.gradle.plugin.android)
     compileOnly(libs.gradle.plugin.compose)

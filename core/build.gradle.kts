@@ -23,14 +23,6 @@ dependencies {
 kotlin {
     @Suppress("UnusedPrivateMember")
     sourceSets {
-        all {
-            languageSettings.apply {
-                progressiveMode = true
-                optIn("kotlin.RequiresOptIn")
-                optIn("kotlin.uuid.ExperimentalUuidApi")
-                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-            }
-        }
         commonMain {
             dependencies {
                 implementation(libs.kermit)
@@ -39,9 +31,6 @@ kotlin {
                 implementation(libs.kotlininject.anvil.runtime.optional)
 
                 implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.kotlinx.collections)
-                implementation(libs.kotlinx.datetime)
-                implementation(libs.kotlinx.serialization)
             }
         }
 

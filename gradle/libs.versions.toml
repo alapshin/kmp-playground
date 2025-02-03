@@ -19,7 +19,7 @@ detekt = "1.23.7"
 kermit = "2.0.5"
 kotest = "5.9.1"
 kotlin = "2.1.10"
-kotlin-inject = "0.7.2"
+kotlin-inject = "0.7.3-SNAPSHOT"
 kotlin-inject-anvil = "0.1.2"
 ksp = "2.1.10-1.0.29"
 ktor = "3.0.3"
@@ -137,6 +137,7 @@ sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", 
 store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
 turbine = "app.cash.turbine:turbine:1.2.0"
 # Build logic dependencies
+gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradle-plugin-ktlint = "org.jlleitschuh.gradle:ktlint-gradle:12.1.1"
 gradle-plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
