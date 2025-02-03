@@ -21,9 +21,9 @@ interface AndroidSqlDriverComponent {
             context = context,
             callback =
                 object : AndroidSqliteDriver.Callback(Database.Schema) {
-                    override fun onOpen(database: SupportSQLiteDatabase) {
-                        super.onOpen(database)
-                        database.setForeignKeyConstraintsEnabled(true)
+                    override fun onOpen(db: SupportSQLiteDatabase) {
+                        super.onOpen(db)
+//                        db.setForeignKeyConstraintsEnabled(true)
                     }
                 },
         )

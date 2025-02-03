@@ -5,6 +5,7 @@ import dev.bitbakery.boilerplate.base.ViewModelClass
 import dev.bitbakery.boilerplate.base.ViewModelInitializer
 import dev.bitbakery.boilerplate.post.data.PostApi
 import dev.bitbakery.boilerplate.post.data.PostListFactory
+import dev.bitbakery.boilerplate.post.data.PostListStore
 import dev.bitbakery.boilerplate.post.data.createPostApi
 import dev.bitbakery.boilerplate.post.ui.PostListPresenter
 import dev.bitbakery.boilerplate.post.ui.PostListPresenterImpl
@@ -23,7 +24,7 @@ interface PostComponent {
 
     @Provides
     @SingleIn(AppScope::class)
-    fun providePostListStore(factory: PostListFactory) = factory.create()
+    fun providePostListStore(factory: PostListFactory): PostListStore = factory.create()
 
     @Provides
     fun PostListPresenterImpl.bind(): PostListPresenter = this

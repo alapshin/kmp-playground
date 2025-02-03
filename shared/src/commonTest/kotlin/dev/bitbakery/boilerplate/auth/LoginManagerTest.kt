@@ -2,7 +2,7 @@ package dev.bitbakery.boilerplate.auth
 
 import dev.bitbakery.boilerplate.inject.createTestComponent
 import dev.bitbakery.boilerplate.network.ApiError
-import dev.bitbakery.boilerplate.user.data.User
+import dev.bitbakery.boilerplate.user.data.UserNetworkModel
 import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight
 import io.kotest.core.spec.style.FunSpec
@@ -92,7 +92,7 @@ class LoginManagerTest :
                 loginManager
                     .login("username", "password")
                     .shouldBeRight()
-                    .shouldBeTypeOf<User>()
+                    .shouldBeTypeOf<UserNetworkModel>()
 
                 tokenStorage
                     .getToken()

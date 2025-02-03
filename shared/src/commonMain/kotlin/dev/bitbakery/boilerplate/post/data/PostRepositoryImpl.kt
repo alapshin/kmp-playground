@@ -1,8 +1,8 @@
 package dev.bitbakery.boilerplate.post.data
 
+import dev.bitbakery.boilerplate.base.DataError
 import dev.bitbakery.boilerplate.base.DataState
 import dev.bitbakery.boilerplate.base.toDataState
-import dev.bitbakery.boilerplate.network.ApiError
 import dev.bitbakery.boilerplate.post.domain.PostDomainModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -18,7 +18,7 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 class PostRepositoryImpl(
     private val store: PostListStore,
 ) : PostRepository {
-    override fun getPosts(): Flow<DataState<ApiError, List<PostDomainModel>>> =
+    override fun getPosts(): Flow<DataState<DataError, List<PostDomainModel>>> =
         store
             .stream(StoreReadRequest.fresh(key = Unit, fallBackToSourceOfTruth = false))
             .map { result -> result.toDataState() }

@@ -3,7 +3,7 @@ package dev.bitbakery.boilerplate.user.data
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
-    fun currentUser(): Flow<User?>
+    fun currentUser(): Flow<UserNetworkModel?>
 
-    fun setCurrentUser(user: User)
+    fun setCurrentUser(user: UserNetworkModel)
 }

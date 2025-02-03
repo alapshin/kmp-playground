@@ -12,11 +12,11 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @SingleIn(AppScope::class)
 @ContributesBinding(AppScope::class)
 class UserRepositoryImpl : UserRepository {
-    private val userFlow: MutableStateFlow<User?> = MutableStateFlow(null)
+    private val userFlow: MutableStateFlow<UserNetworkModel?> = MutableStateFlow(null)
 
-    override fun currentUser(): Flow<User?> = userFlow.asStateFlow()
+    override fun currentUser(): Flow<UserNetworkModel?> = userFlow.asStateFlow()
 
-    override fun setCurrentUser(user: User) {
+    override fun setCurrentUser(user: UserNetworkModel) {
         userFlow.value = user
     }
 }

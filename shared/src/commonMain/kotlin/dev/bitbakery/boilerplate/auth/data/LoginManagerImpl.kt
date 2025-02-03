@@ -5,7 +5,7 @@ import arrow.core.right
 import dev.bitbakery.boilerplate.network.ApiError
 import dev.bitbakery.boilerplate.network.TokenStorage
 import dev.bitbakery.boilerplate.network.toApiError
-import dev.bitbakery.boilerplate.user.data.User
+import dev.bitbakery.boilerplate.user.data.UserNetworkModel
 import dev.bitbakery.boilerplate.user.data.UserRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.auth.authProvider
@@ -35,13 +35,12 @@ class LoginManagerImpl(
     override suspend fun login(
         username: String,
         password: String,
-    ): Either<ApiError, User> =
+    ): Either<ApiError, UserNetworkModel> =
         api
             .login(LoginRequest(username = username, password = password))
             .map { response ->
                 response.user
             }.onRight { user ->
-                setBearerToken(user.token)
                 userRepository.setCurrentUser(user)
                 isUserLoggedIn.update { true }
             }
@@ -51,7 +50,7 @@ class LoginManagerImpl(
         isUserLoggedIn.update { false }
     }
 
-    override suspend fun authorize(): Either<ApiError, User?> =
+    override suspend fun authorize(): Either<ApiError, UserNetworkModel?> =
         if (tokenStorage.getToken() == null) {
             null.right()
         } else {

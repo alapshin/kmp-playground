@@ -2,8 +2,8 @@ package dev.bitbakery.boilerplate.post.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,8 +19,7 @@ fun PostListScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
+    LazyColumn(
         modifier = modifier,
         contentPadding =
             PaddingValues(
@@ -28,7 +27,9 @@ fun PostListScreen(
                 horizontal = MaterialTheme.spacing.medium,
             ),
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium),
-        horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium),
     ) {
+        items(state.items, key = { it.id }) {
+            PostListItemUi(it)
+        }
     }
 }
