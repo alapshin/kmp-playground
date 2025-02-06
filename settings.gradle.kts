@@ -33,6 +33,8 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        // Needed for Requery sqlite dependency
+        maven(url = "https://www.jitpack.io")
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
     }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)

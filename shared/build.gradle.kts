@@ -95,6 +95,8 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.activity.compose)
                 implementation(libs.kotlinx.coroutines.android)
+                implementation(libs.sqlite.androidx)
+                implementation(libs.sqlite.requery)
                 implementation(libs.sqldelight.android)
             }
         }
@@ -138,6 +140,7 @@ buildkonfig {
 sqldelight {
     databases {
         create("Database") {
+            dialect(libs.sqldelight.dialect.sqlite)
             packageName.set("dev.bitbakery.boilerplate.database")
         }
     }
