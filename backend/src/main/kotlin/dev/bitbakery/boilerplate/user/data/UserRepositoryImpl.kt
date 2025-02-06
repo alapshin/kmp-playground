@@ -1,4 +1,4 @@
-package dev.bitbakery.boilerplate.user
+package dev.bitbakery.boilerplate.user.data
 
 import me.tatarka.inject.annotations.Inject
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope

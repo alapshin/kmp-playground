@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS  like (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    uuid TEXT UNIQUE DEFAULT (uuid_str(uuid())),
+    uuid TEXT NOT NULL UNIQUE DEFAULT (uuid_str(uuid())),
     user_id INTEGER NOT NULL,
     post_id INTEGER,
     comment_id INTEGER,

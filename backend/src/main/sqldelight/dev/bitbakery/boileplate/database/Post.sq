@@ -11,3 +11,21 @@ CREATE TABLE IF NOT EXISTS post (
 selectAll:
 SELECT id, uuid, user_id, title, content, created_at
 FROM post;
+
+selectFull:
+SELECT
+    p.id,
+    p.uuid,
+    p.user_id,
+    p.title,
+    p.content,
+    p.created_at,
+    u.uuid AS user_uuid,
+    u.username AS username,
+    COUNT(l.id) AS like_count,
+    COUNT(c.id) AS comment_count
+FROM post AS p
+INNER JOIN user AS u ON p.user_id = u.id
+LEFT OUTER JOIN like AS l ON l.post_id = p.id
+LEFT OUTER JOIN comment AS c ON c.post_id = p.id
+GROUP BY p.id;

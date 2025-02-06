@@ -1,6 +1,7 @@
 package dev.bitbakery.boilerplate.post.data
 
 import dev.bitbakery.boileplate.database.Database
+import dev.bitbakery.boilerplate.user.data.UserEntity
 import kotlinx.datetime.Instant
 import me.tatarka.inject.annotations.Inject
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
@@ -16,14 +17,21 @@ class PostRepositoryImpl(
 ) : PostRepository {
     override fun getPosts(): List<PostEntity> =
         database.postQueries
-            .selectAll { id, uuid, userId, title, content, createdAt ->
+            .selectFull { id, uuid, userId, title, content, createdAt, user_uuid, username, likeCount, commentCount ->
                 PostEntity(
                     id = id,
                     uuid = Uuid.parse(uuid),
-                    userId = userId,
                     title = title,
                     content = content,
                     createdAt = Instant.parse(createdAt),
+                    user =
+                        UserEntity(
+                            id = userId,
+                            uuid = Uuid.parse(user_uuid),
+                            username = username,
+                        ),
+                    likeCount = likeCount,
+                    commentCount = commentCount,
                 )
             }.executeAsList()
 }
