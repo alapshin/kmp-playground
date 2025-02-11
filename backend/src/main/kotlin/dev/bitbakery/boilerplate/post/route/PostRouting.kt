@@ -20,15 +20,18 @@ class PostRouting(
             get<PostResource> {
                 call.respond(service.getPosts())
             }
+            get<PostResource.Detail> { detail ->
+                call.respond(service.getPost(detail.postId))
+            }
         }
     }
 }
 
 @Resource("/posts/")
 private class PostResource {
-    @Resource("{id}")
-    class Id(
+    @Resource("{postId}/")
+    class Detail(
+        val postId: Long,
         val parent: PostResource = PostResource(),
-        val id: Long,
     )
 }

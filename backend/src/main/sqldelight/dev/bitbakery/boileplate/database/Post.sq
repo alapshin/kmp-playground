@@ -8,11 +8,7 @@ CREATE TABLE IF NOT EXISTS post (
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
-selectAll:
-SELECT id, uuid, user_id, title, content, created_at
-FROM post;
-
-selectFull:
+CREATE VIEW IF NOT EXISTS PostWithUser AS
 SELECT
     p.id,
     p.uuid,
@@ -29,3 +25,13 @@ INNER JOIN user AS u ON p.user_id = u.id
 LEFT OUTER JOIN like AS l ON l.post_id = p.id
 LEFT OUTER JOIN comment AS c ON c.post_id = p.id
 GROUP BY p.id;
+
+selectAllPosts:
+SELECT *
+FROM PostWithUser;
+
+selectPostById:
+SELECT *
+FROM PostWithUser
+WHERE id = ?;
+

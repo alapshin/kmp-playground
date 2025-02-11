@@ -1,7 +1,6 @@
 package dev.bitbakery.boilerplate.post.service
 
 import dev.bitbakery.boilerplate.post.data.PostRepository
-import dev.bitbakery.boilerplate.user.service.User
 import me.tatarka.inject.annotations.Inject
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
@@ -11,24 +10,10 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @SingleIn(AppScope::class)
 @ContributesBinding(AppScope::class)
 class PostServiceImpl(
+    private val serializer: PostSerializer,
     private val repository: PostRepository,
 ) : PostService {
-    override fun getPosts(): List<Post> =
-        repository.getPosts().map { entity ->
-            Post(
-                id = entity.id,
-                uuid = entity.uuid,
-                title = entity.title,
-                content = entity.content,
-                createdAt = entity.createdAt,
-                user =
-                    User(
-                        id = entity.user.id,
-                        uuid = entity.user.uuid,
-                        username = entity.user.username,
-                    ),
-                likeCount = entity.likeCount,
-                commentCount = entity.commentCount,
-            )
-        }
+    override fun getPosts(): List<Post> = repository.getPosts().map(serializer::serialize)
+
+    override fun getPost(postId: Long): Post = repository.getPost(postId).let(serializer::serialize)
 }
