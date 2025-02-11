@@ -12,14 +12,6 @@ plugins {
 kotlin {
     @Suppress("UnusedPrivateMember")
     sourceSets {
-        all {
-            languageSettings.apply {
-                progressiveMode = true
-                optIn("kotlin.RequiresOptIn")
-                optIn("kotlin.uuid.ExperimentalUuidApi")
-                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-            }
-        }
         commonMain {
             dependencies {
                 implementation(libs.kermit)

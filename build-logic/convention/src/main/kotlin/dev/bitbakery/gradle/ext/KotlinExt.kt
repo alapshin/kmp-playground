@@ -23,7 +23,9 @@ internal fun Project.configureKotlinJvm() {
             apiVersion.set(KotlinVersion.KOTLIN_2_1)
             languageVersion.set(KotlinVersion.KOTLIN_2_1)
             progressiveMode.set(true)
+            optIn.add("kotlin.RequiresOptIn")
             optIn.add("kotlin.uuid.ExperimentalUuidApi")
+            optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
         }
     }
 }
