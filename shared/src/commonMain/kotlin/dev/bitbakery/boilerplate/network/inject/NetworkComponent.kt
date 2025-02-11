@@ -3,7 +3,6 @@ package dev.bitbakery.boilerplate.network.inject
 import de.jensklingenberg.ktorfit.Ktorfit
 import de.jensklingenberg.ktorfit.converter.Converter
 import dev.bitbakery.boilerplate.BuildKonfig
-import dev.bitbakery.boilerplate.network.BooleanRequestConverter
 import dev.bitbakery.boilerplate.network.EitherResponseConverter
 import dev.bitbakery.boilerplate.network.KermitKtorLogger
 import dev.bitbakery.boilerplate.network.TokenStorage
@@ -92,11 +91,6 @@ interface NetworkComponent {
             .httpClient(httpClient)
             .converterFactories(*converterFactories.toTypedArray())
             .build()
-
-    @IntoSet
-    @Provides
-    @SingleIn(AppScope::class)
-    fun BooleanRequestConverter.Factory.bind(): Converter.Factory = this
 
     @IntoSet
     @Provides
