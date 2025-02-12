@@ -26,16 +26,8 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun RegistrationScreen(modifier: Modifier = Modifier) {
-//    val state by bloc.state.collectAsState()
-
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
-
-//    if (state.success == true) {
-//        LaunchedEffect(state) {
-//            bloc.navigateToMain()
-//        }
-//    }
 
     Column(
         verticalArrangement = Arrangement.Center,

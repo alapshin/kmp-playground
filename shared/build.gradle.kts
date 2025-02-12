@@ -38,7 +38,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(projects.arch)
                 implementation(projects.core)
 
                 api(compose.ui)
@@ -72,6 +71,7 @@ kotlin {
                 implementation(libs.ktorfit)
                 implementation(libs.bundles.ktor.client)
 
+                implementation(libs.molecule)
                 implementation(libs.store)
                 implementation(libs.sqldelight.coroutines)
             }

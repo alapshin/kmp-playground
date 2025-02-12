@@ -1,7 +1,6 @@
 rootProject.name = "boilerplate"
 
 include(
-    ":arch",
     ":core",
     ":shared",
     ":android",

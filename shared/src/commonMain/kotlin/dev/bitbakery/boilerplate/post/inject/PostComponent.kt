@@ -4,11 +4,10 @@ import de.jensklingenberg.ktorfit.Ktorfit
 import dev.bitbakery.boilerplate.base.ViewModelClass
 import dev.bitbakery.boilerplate.base.ViewModelInitializer
 import dev.bitbakery.boilerplate.post.data.PostApi
-import dev.bitbakery.boilerplate.post.data.PostListFactory
 import dev.bitbakery.boilerplate.post.data.PostListStore
+import dev.bitbakery.boilerplate.post.data.PostListStoreFactory
+import dev.bitbakery.boilerplate.post.data.PostRepository
 import dev.bitbakery.boilerplate.post.data.createPostApi
-import dev.bitbakery.boilerplate.post.ui.PostListPresenter
-import dev.bitbakery.boilerplate.post.ui.PostListPresenterImpl
 import dev.bitbakery.boilerplate.post.ui.PostListViewModel
 import me.tatarka.inject.annotations.IntoMap
 import me.tatarka.inject.annotations.Provides
@@ -24,13 +23,10 @@ interface PostComponent {
 
     @Provides
     @SingleIn(AppScope::class)
-    fun providePostListStore(factory: PostListFactory): PostListStore = factory.create()
-
-    @Provides
-    fun PostListPresenterImpl.bind(): PostListPresenter = this
+    fun providePostListStore(factory: PostListStoreFactory): PostListStore = factory.create()
 
     @IntoMap
     @Provides
-    fun provideAuthorListViewModel(presenter: PostListPresenter): Pair<ViewModelClass, ViewModelInitializer> =
-        PostListViewModel::class to { PostListViewModel(presenter) }
+    fun provideAuthorListViewModel(repository: PostRepository): Pair<ViewModelClass, ViewModelInitializer> =
+        PostListViewModel::class to { PostListViewModel(repository) }
 }
