@@ -9,13 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.bitbakery.boilerplate.base.injectViewModel
+import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.injectedViewModel
 import dev.bitbakery.boilerplate.theme.spacing
 
 @Composable
 fun PostListScreen(
     modifier: Modifier = Modifier,
-    viewModel: PostListViewModel = injectViewModel(),
+    viewModel: PostListViewModel = injectedViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 

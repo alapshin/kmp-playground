@@ -21,7 +21,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.bitbakery.boilerplate.base.injectViewModel
+import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.injectedViewModel
 import dev.bitbakery.boilerplate.shared.resources.Res
 import dev.bitbakery.boilerplate.shared.resources.landing_login_button
 import dev.bitbakery.boilerplate.shared.resources.landing_register_button
@@ -35,7 +35,7 @@ fun StartScreen(
     onLoginButtonClick: () -> Unit,
     onRegistrationButtonClick: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: StartViewModel = injectViewModel(),
+    viewModel: StartViewModel = injectedViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val latestOnSuccessfulLogin by rememberUpdatedState(onSuccessfulLogin)

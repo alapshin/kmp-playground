@@ -21,13 +21,13 @@ class MainActivity : ComponentActivity() {
                 applicationContext,
             )
 
-        val viewModelFactory = appComponent.viewModelFactory
         val imageLoaderFactory = appComponent.imageLoaderFactory
+        val viewModelFactoryOwner = appComponent.vmFactoryOwner
 
         setContent {
             App(
-                viewModelFactory = viewModelFactory,
                 imageLoaderFactory = imageLoaderFactory,
+                viewModelFactoryOwner = viewModelFactoryOwner,
             )
 
             // TODO: Remove when https://issuetracker.google.com/issues/364713509 is fixed
