@@ -1,6 +1,7 @@
 package dev.bitbakery.boilerplate.post.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,10 +26,14 @@ import dev.bitbakery.boilerplate.theme.spacing
 @Composable
 fun PostListItemUi(
     item: PostUiModel,
+    onItemClick: (Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier,
+        modifier =
+            modifier.clickable {
+                onItemClick(item.id)
+            },
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small),
     ) {
         Row(

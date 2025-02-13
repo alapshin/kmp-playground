@@ -5,9 +5,7 @@ import app.cash.sqldelight.coroutines.mapToList
 import dev.bitbakery.boilerplate.base.toFetcherResult
 import dev.bitbakery.boilerplate.database.Database
 import dev.bitbakery.boilerplate.post.domain.PostDomainModel
-import dev.bitbakery.boilerplate.user.domain.UserDomainModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.datetime.Instant
 import me.tatarka.inject.annotations.Inject
 import org.mobilenativefoundation.store.store5.Bookkeeper
 import org.mobilenativefoundation.store.store5.Converter
@@ -18,15 +16,15 @@ import org.mobilenativefoundation.store.store5.StoreBuilder
 import org.mobilenativefoundation.store.store5.Updater
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
-import kotlin.uuid.Uuid
 
 typealias PostListStore = Store<Unit, List<PostDomainModel>>
 
 @Inject
 @SingleIn(AppScope::class)
-class PostListFactory(
+class PostListStoreFactory(
     private val api: PostApi,
     private val database: Database,
+    private val mapper: PostMapper,
     private val converter: PostModelConverter,
 ) {
     fun create(): PostListStore =
@@ -46,34 +44,8 @@ class PostListFactory(
         SourceOfTruth.of(
             reader = {
                 database.postQueries
-                    .selectFull {
-                            id,
-                            uuid,
-                            userId,
-                            title,
-                            content,
-                            createdAt,
-                            userUuid,
-                            username,
-                            likeCount,
-                            commentCount,
-                        ->
-                        PostDomainModel(
-                            id = id,
-                            uuid = Uuid.parse(uuid),
-                            title = title,
-                            content = content,
-                            createdAt = Instant.parse(createdAt),
-                            user =
-                                UserDomainModel(
-                                    id = userId,
-                                    uuid = Uuid.parse(userUuid),
-                                    username = username,
-                                ),
-                            likeCount = likeCount,
-                            commentCount = commentCount,
-                        )
-                    }.asFlow()
+                    .selectAllPosts(mapper::map)
+                    .asFlow()
                     .mapToList(Dispatchers.IO)
             },
             writer = { _, posts ->

@@ -14,6 +14,7 @@ import dev.bitbakery.boilerplate.theme.spacing
 
 @Composable
 fun PostListScreen(
+    onItemClick: (Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: PostListViewModel = injectedViewModel(),
 ) {
@@ -29,7 +30,7 @@ fun PostListScreen(
         verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium),
     ) {
         items(state.items, key = { it.id }) {
-            PostListItemUi(it)
+            PostListItemUi(it, onItemClick = onItemClick)
         }
     }
 }

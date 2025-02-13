@@ -1,9 +1,10 @@
 package dev.bitbakery.boilerplate.post.inject
 
 import de.jensklingenberg.ktorfit.Ktorfit
-import dev.bitbakery.boilerplate.base.ViewModelClass
-import dev.bitbakery.boilerplate.base.ViewModelInitializer
+import dev.bitbakery.boilerplate.arch.ViewModelPair
 import dev.bitbakery.boilerplate.post.data.PostApi
+import dev.bitbakery.boilerplate.post.data.PostDetailStore
+import dev.bitbakery.boilerplate.post.data.PostDetailStoreFactory
 import dev.bitbakery.boilerplate.post.data.PostListStore
 import dev.bitbakery.boilerplate.post.data.PostListStoreFactory
 import dev.bitbakery.boilerplate.post.data.PostRepository
@@ -25,8 +26,12 @@ interface PostComponent {
     @SingleIn(AppScope::class)
     fun providePostListStore(factory: PostListStoreFactory): PostListStore = factory.create()
 
+    @Provides
+    @SingleIn(AppScope::class)
+    fun providePostDetailStore(factory: PostDetailStoreFactory): PostDetailStore = factory.create()
+
     @IntoMap
     @Provides
-    fun provideAuthorListViewModel(repository: PostRepository): Pair<ViewModelClass, ViewModelInitializer> =
+    fun providePostListViewModel(repository: PostRepository): ViewModelPair =
         PostListViewModel::class to { PostListViewModel(repository) }
 }

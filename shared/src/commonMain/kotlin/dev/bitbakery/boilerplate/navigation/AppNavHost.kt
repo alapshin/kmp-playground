@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import dev.bitbakery.boilerplate.login.ui.LoginScreen
+import dev.bitbakery.boilerplate.post.ui.PostDetailScreen
 import dev.bitbakery.boilerplate.post.ui.PostListScreen
 import dev.bitbakery.boilerplate.start.ui.StartScreen
 
@@ -19,9 +20,6 @@ fun AppNavHost(
         startDestination = Destination.PostList,
         modifier = modifier,
     ) {
-        composable<Destination.PostList> {
-            PostListScreen()
-        }
         composable<Destination.Start> {
             StartScreen(
                 onSuccessfulLogin = {
@@ -46,6 +44,18 @@ fun AppNavHost(
             )
         }
         composable<Destination.Registration> {
+        }
+
+        composable<Destination.PostList> {
+            PostListScreen(
+                onItemClick = { postId ->
+                    navController.navigate(Destination.PostDetail(postId))
+                },
+            )
+        }
+
+        composable<Destination.PostDetail> {
+            PostDetailScreen()
         }
     }
 }

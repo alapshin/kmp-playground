@@ -16,10 +16,16 @@ import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 @SingleIn(AppScope::class)
 @ContributesBinding(AppScope::class)
 class PostRepositoryImpl(
-    private val store: PostListStore,
+    private val listStore: PostListStore,
+    private val detailStore: PostDetailStore,
 ) : PostRepository {
     override fun getPosts(): Flow<DataState<DataError, List<PostDomainModel>>> =
-        store
+        listStore
             .stream(StoreReadRequest.fresh(key = Unit, fallBackToSourceOfTruth = false))
+            .map { result -> result.toDataState() }
+
+    override fun getPost(postId: Long): Flow<DataState<DataError, PostDomainModel>> =
+        detailStore
+            .stream(StoreReadRequest.fresh(key = postId, fallBackToSourceOfTruth = false))
             .map { result -> result.toDataState() }
 }

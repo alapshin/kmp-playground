@@ -18,4 +18,9 @@ sealed interface Destination {
 
     @Serializable
     data object PostList : Destination
+
+    @Serializable
+    data class PostDetail(
+        val postId: Long,
+    ) : Destination
 }

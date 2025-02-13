@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PostRepository {
     fun getPosts(): Flow<DataState<DataError, List<PostDomainModel>>>
+
+    fun getPost(postId: Long): Flow<DataState<DataError, PostDomainModel>>
 }
