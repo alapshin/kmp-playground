@@ -2,11 +2,7 @@ package dev.bitbakery.gradle.ext
 
 import com.google.devtools.ksp.gradle.KspAATask
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
-import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
@@ -31,6 +27,8 @@ internal fun Project.configureKotlinJvm() {
 }
 
 internal fun Project.configureKotlinMultiplatform() {
+    val kspGeneratedDir = "${layout.buildDirectory.get()}/generated/ksp"
+
     // Configure Java to use our chosen language level. Kotlin will automatically pick this up
     configureJava()
 
@@ -45,8 +43,23 @@ internal fun Project.configureKotlinMultiplatform() {
         }
 
         sourceSets.named("commonMain").configure {
-            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+            kotlin.srcDir("$kspGeneratedDir/metadata/commonMain/kotlin")
         }
+
+        sourceSets.named("androidMain").configure {
+            project.android {
+                sourceSets.named("debug") {
+                    kotlin.srcDir("$kspGeneratedDir/android/androidDebug/kotlin")
+                }
+                sourceSets.named("release") {
+                    kotlin.srcDir("$kspGeneratedDir/android/androidRelease/kotlin")
+                }
+            }
+        }
+
+//        sourceSets.named("desktopMain").configure {
+//            kotlin.srcDir("$kspGeneratedDir/desktop/desktopMain/kotlin")
+//        }
     }
 
     tasks.withType<KspAATask> {
@@ -60,7 +73,3 @@ internal fun Project.configureKotlinMultiplatform() {
         }
     }
 }
-
-private fun Project.kotlin(action: KotlinBaseExtension.() -> Unit) = extensions.configure<KotlinBaseExtension>(action)
-private fun Project.kotlinJvm(action: KotlinJvmExtension.() -> Unit) = extensions.configure<KotlinJvmExtension>(action)
-private fun Project.kotlinMultiplatform(action: KotlinMultiplatformExtension.() -> Unit) = extensions.configure<KotlinMultiplatformExtension>(action)

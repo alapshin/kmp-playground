@@ -37,30 +37,3 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
         configureKotlinMultiplatform()
     }
 }
-
-private fun Project.addKspDependencyForAllTargets(configurationNameSuffix: String, dependencyNotation: Any) {
-    val kmpExtension = extensions.getByType<KotlinMultiplatformExtension>()
-    dependencies {
-        kmpExtension.targets
-            .asSequence()
-            .filter { target ->
-                // Don't add KSP for common target, only final platforms
-                target.platformType != KotlinPlatformType.common
-            }
-            .forEach { target ->
-                add(
-                    "ksp${target.targetName.capitalized()}$configurationNameSuffix",
-                    dependencyNotation,
-                )
-            }
-    }
-}
-
-fun Project.addKspDependencyForAllTargets(dependencyNotation: Any) {
-    addKspDependencyForAllTargets("", dependencyNotation)
-}
-
-fun Project.addKspTestDependencyForAllTargets(dependencyNotation: Any) {
-    addKspDependencyForAllTargets("Test", dependencyNotation)
-}
-

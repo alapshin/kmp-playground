@@ -37,10 +37,3 @@ internal fun Project.configureAndroid() {
         "coreLibraryDesugaring"(libs.findLibrary("desugarjdklibs").get())
     }
 }
-
-private fun Project.android(action: BaseExtension.() -> Unit) = extensions.configure<BaseExtension>(action)
-
-@Suppress("UnusedPrivateMember")
-private fun Project.androidComponents(action: AndroidComponentsExtension<*, *, *>.() -> Unit) {
-    extensions.configure(AndroidComponentsExtension::class.java, action)
-}
