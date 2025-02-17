@@ -5,19 +5,6 @@ plugins {
     id("dev.bitbakery.gradle.ktlint")
     id("dev.bitbakery.gradle.compose")
     id("dev.bitbakery.gradle.android.application")
-    id("dev.bitbakery.gradle.kotlin.multiplatform")
-}
-
-@Suppress("UnusedPrivateProperty")
-kotlin {
-    androidTarget()
-    sourceSets {
-        val androidMain by getting {
-            dependencies {
-                implementation(projects.shared)
-            }
-        }
-    }
 }
 
 android {
@@ -51,4 +38,8 @@ android {
                 }
         }
     }
+}
+
+dependencies {
+    implementation(projects.shared)
 }
