@@ -1,6 +1,6 @@
 [versions]
 # Keep in mind IntelliJ IDEA compatablility when updating AGP
-agp = "8.7.3"
+agp = "8.9.0"
 minSdk = "24"
 targetSdk = "35"
 compileSdk = "35"
@@ -9,27 +9,27 @@ arrow = "2.0.1"
 coil = "3.1.0"
 collections = "0.3.8"
 compose-multiplatform = "1.7.3"
-compose-navigation = "2.8.0-alpha13"
+compose-navigation = "2.9.0-alpha14"
 compose-viewmodel = "2.8.4"
 compose-rules = "0.4.22"
 coroutines = "1.10.1"
-datastore = "1.1.2"
+datastore = "1.1.3"
 datetime = "0.6.2"
-detekt = "1.23.7"
+detekt = "1.23.8"
 kermit = "2.0.5"
 kotest = "5.9.1"
 kotlin = "2.1.10"
 kotlin-inject = "0.7.3-SNAPSHOT"
 kotlin-inject-anvil = "0.1.2"
 kotlin-inject-viewmodel = "0.1.2"
-ksp = "2.1.10-1.0.30"
-ktor = "3.1.0"
+ksp = "2.1.10-1.0.31"
+ktor = "3.1.1"
 ktlint = "1.3.1"
-ktorfit = "2.2.0"
+ktorfit = "2.4.0"
 okio = "3.10.2"
 serialization = "1.8.0"
 sqldelight = "2.0.2"
-store = "5.1.0-alpha05"
+store = "5.1.0-alpha06"
 
 [plugins]
 doctor = "com.osacky.doctor:0.10.0"
@@ -49,7 +49,7 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
-ktlint = "org.jlleitschuh.gradle.ktlint:12.1.1"
+ktlint = "org.jlleitschuh.gradle.ktlint:12.2.0"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 buildkonfig = "com.codingfeline.buildkonfig:0.15.2"
 openapi-generator = "org.openapi.generator:7.9.0"
@@ -84,7 +84,7 @@ ktor-server = [
 ]
 
 [libraries]
-androidx-activity-compose = "androidx.activity:activity-compose:1.10.0"
+androidx-activity-compose = "androidx.activity:activity-compose:1.10.1"
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
@@ -95,7 +95,7 @@ compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-co
 compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
 detekt-rules-arrow = "com.wolt.arrow.detekt:rules:0.5.0"
 detekt-rules-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "compose-rules" }
-desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.1.4"
+desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.1.5"
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kotest-assertions-arrow = "io.kotest.extensions:kotest-assertions-arrow:2.0.0"
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
@@ -132,7 +132,7 @@ ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
 ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
-logback = "ch.qos.logback:logback-classic:1.5.16"
+logback = "ch.qos.logback:logback-classic:1.5.17"
 molecule = "app.cash.molecule:molecule-runtime:2.0.0"
 okio-fakefs = { module = "com.squareup.okio:okio-fakefilesystem", version.ref = "okio" }
 sqlite-androidx = "androidx.sqlite:sqlite-framework:2.4.0"

@@ -62,6 +62,9 @@ internal fun Project.configureKotlinMultiplatform() {
 //        }
     }
 
+    // Needed to work around incorrect task dependencies for ksp tasks similar to
+    //  Reason: Task ':shared:kspDebugKotlinAndroid' uses this output of task ':shared:kspCommonMainKotlinMetadata'
+    //  without declaring an explicit or implicit dependency.
     tasks.withType<KspAATask> {
         if (name != "kspCommonMainKotlinMetadata") {
             dependsOn(tasks.named { it == "kspCommonMainKotlinMetadata" })

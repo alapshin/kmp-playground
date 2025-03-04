@@ -122,7 +122,6 @@ kotlin {
         }
 
         val desktopTest by getting {
-            kotlin.srcDir("buiild/generated/ksp/desktop/desktopTest/kotlin")
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(libs.kotest.runner.junit5)
@@ -133,6 +132,10 @@ kotlin {
 
 android {
     namespace = "dev.bitbakery.boilerplate.shared"
+}
+
+ktorfit {
+    kotlinVersion = "-"
 }
 
 buildkonfig {

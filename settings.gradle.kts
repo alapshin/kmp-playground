@@ -18,6 +18,7 @@ pluginManagement {
                 includeGroupByRegex(".*android.*")
             }
         }
+        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -31,6 +32,7 @@ dependencyResolutionManagement {
                 includeGroupByRegex(".*android.*")
             }
         }
+        mavenLocal()
         mavenCentral()
         // Needed for Requery sqlite dependency
         maven(url = "https://www.jitpack.io")
