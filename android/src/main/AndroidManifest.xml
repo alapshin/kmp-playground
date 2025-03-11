@@ -6,8 +6,8 @@
 
     <application
         android:allowBackup="false"
-        android:name="dev.bitbakery.boilerplate.BoilerplateApplication"
         android:supportsRtl="true"
+        android:name="dev.bitbakery.boilerplate.BoilerplateApplication"
         android:windowSoftInputMode="adjustResize"
         android:theme="@style/AppTheme">
         <activity

@@ -1,14 +1,26 @@
 package dev.bitbakery.gradle.ext
 
-import com.google.devtools.ksp.gradle.KspAATask
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 internal fun Project.configureKotlin() {
     // Configure Java to use our chosen language level. Kotlin will automatically pick this up
     configureJava()
+}
+
+internal fun Project.configureKotlinAndroid() {
+    configureKotlin()
+
+    kotlinAndroid {
+        compilerOptions {
+            apiVersion.set(KotlinVersion.KOTLIN_2_1)
+            languageVersion.set(KotlinVersion.KOTLIN_2_1)
+            progressiveMode.set(true)
+            optIn.add("kotlin.RequiresOptIn")
+            optIn.add("kotlin.uuid.ExperimentalUuidApi")
+            optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+        }
+    }
 }
 
 internal fun Project.configureKotlinJvm() {
@@ -65,14 +77,7 @@ internal fun Project.configureKotlinMultiplatform() {
     // Needed to work around incorrect task dependencies for ksp tasks similar to
     //  Reason: Task ':shared:kspDebugKotlinAndroid' uses this output of task ':shared:kspCommonMainKotlinMetadata'
     //  without declaring an explicit or implicit dependency.
-    tasks.withType<KspAATask> {
-        if (name != "kspCommonMainKotlinMetadata") {
-            dependsOn(tasks.named { it == "kspCommonMainKotlinMetadata" })
-        }
-    }
-    tasks.withType<KotlinCompilationTask<*>> {
-        if (name != "kspCommonMainKotlinMetadata") {
-            dependsOn(tasks.named { it == "kspCommonMainKotlinMetadata" })
-        }
+    tasks.named { name -> name.startsWith("ksp") && name != "kspCommonMainKotlinMetadata"  }.configureEach {
+        dependsOn(tasks.named { it == "kspCommonMainKotlinMetadata" })
     }
 }
