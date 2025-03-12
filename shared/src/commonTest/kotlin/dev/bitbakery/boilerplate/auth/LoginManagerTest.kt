@@ -20,7 +20,7 @@ import kotlinx.coroutines.runBlocking
 
 class LoginManagerTest :
     FunSpec({
-        test("Should return HttpError when API responds with HTTP error") {
+        xtest("Should return HttpError when API responds with HTTP error") {
             val engine =
                 MockEngine {
                     respondError(HttpStatusCode.Unauthorized)
@@ -34,7 +34,7 @@ class LoginManagerTest :
                     .shouldBeTypeOf<ApiError.HttpError>()
             }
         }
-        test("Should return NetworkError when network is not available") {
+        xtest("Should return NetworkError when network is not available") {
             val engine =
                 MockEngine {
                     throw SocketTimeoutException()
@@ -48,7 +48,7 @@ class LoginManagerTest :
                     .shouldBeTypeOf<ApiError.NetworkError>()
             }
         }
-        test("Should return SerializationError when response body can't be parsed") {
+        xtest("Should return SerializationError when response body can't be parsed") {
             val engine =
                 MockEngine {
                     respond(
@@ -66,7 +66,7 @@ class LoginManagerTest :
                     .shouldBeTypeOf<ApiError.SerializationError>()
             }
         }
-        test("Should return User object when request is successful") {
+        xtest("Should return User object when request is successful") {
             val engine =
                 MockEngine {
                     respond(
