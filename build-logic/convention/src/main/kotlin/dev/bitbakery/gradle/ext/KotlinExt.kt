@@ -1,6 +1,13 @@
 package dev.bitbakery.gradle.ext
 
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.dsl.HasConfigurableKotlinCompilerOptions
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 internal fun Project.configureKotlin() {
@@ -8,17 +15,15 @@ internal fun Project.configureKotlin() {
     configureJava()
 }
 
+/**
+ * Configures common Kotlin compiler options for all Kotlin project types
+ */
 internal fun Project.configureKotlinAndroid() {
     configureKotlin()
 
     kotlinAndroid {
         compilerOptions {
-            apiVersion.set(KotlinVersion.KOTLIN_2_1)
-            languageVersion.set(KotlinVersion.KOTLIN_2_1)
-            progressiveMode.set(true)
-            optIn.add("kotlin.RequiresOptIn")
-            optIn.add("kotlin.uuid.ExperimentalUuidApi")
-            optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            configureKotlinCompilerOptions()
         }
     }
 }
@@ -28,12 +33,7 @@ internal fun Project.configureKotlinJvm() {
 
     kotlinJvm {
         compilerOptions {
-            apiVersion.set(KotlinVersion.KOTLIN_2_1)
-            languageVersion.set(KotlinVersion.KOTLIN_2_1)
-            progressiveMode.set(true)
-            optIn.add("kotlin.RequiresOptIn")
-            optIn.add("kotlin.uuid.ExperimentalUuidApi")
-            optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            configureKotlinCompilerOptions()
         }
     }
 }
@@ -46,12 +46,7 @@ internal fun Project.configureKotlinMultiplatform() {
 
     kotlinMultiplatform {
         compilerOptions {
-            apiVersion.set(KotlinVersion.KOTLIN_2_1)
-            languageVersion.set(KotlinVersion.KOTLIN_2_1)
-            progressiveMode.set(true)
-            optIn.add("kotlin.RequiresOptIn")
-            optIn.add("kotlin.uuid.ExperimentalUuidApi")
-            optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+            configureKotlinCompilerOptions()
         }
 
         sourceSets.named("commonMain").configure {
@@ -81,3 +76,17 @@ internal fun Project.configureKotlinMultiplatform() {
         dependsOn(tasks.named { it == "kspCommonMainKotlinMetadata" })
     }
 }
+
+internal fun KotlinCommonCompilerOptions.configureKotlinCompilerOptions() {
+    progressiveMode.set(true)
+    apiVersion.set(KotlinVersion.KOTLIN_2_1)
+    languageVersion.set(KotlinVersion.KOTLIN_2_1)
+    optIn.add("kotlin.RequiresOptIn")
+    optIn.add("kotlin.uuid.ExperimentalUuidApi")
+    optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+}
+
+internal fun Project.kotlin(action: KotlinBaseExtension.() -> Unit) = extensions.configure<KotlinBaseExtension>(action)
+internal fun Project.kotlinJvm(action: KotlinJvmExtension.() -> Unit) = extensions.configure<KotlinJvmExtension>(action)
+internal fun Project.kotlinAndroid(action: KotlinAndroidExtension.() -> Unit) = extensions.configure<KotlinAndroidExtension>(action)
+internal fun Project.kotlinMultiplatform(action: KotlinMultiplatformExtension.() -> Unit) = extensions.configure<KotlinMultiplatformExtension>(action)

@@ -5,6 +5,7 @@ plugins {
     id("dev.bitbakery.gradle.ktlint")
     id("dev.bitbakery.gradle.compose")
     id("dev.bitbakery.gradle.android.application")
+    id("dev.bitbakery.gradle.kotlin.android")
 }
 
 android {

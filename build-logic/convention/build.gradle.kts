@@ -41,13 +41,13 @@ gradlePlugin {
             id = "dev.bitbakery.gradle.android.application"
             implementationClass = "dev.bitbakery.gradle.AndroidApplicationConventionPlugin"
         }
-        register("kotlin-android") {
-            id = "dev.bitbakery.gradle.kotlin.android"
-            implementationClass = "dev.bitbakery.gradle.KotlinAndroidConventionPlugin"
-        }
         register("kotlin-jvm") {
             id = "dev.bitbakery.gradle.kotlin.jvm"
             implementationClass = "dev.bitbakery.gradle.KotlinJvmConventionPlugin"
+        }
+        register("kotlin-android") {
+            id = "dev.bitbakery.gradle.kotlin.android"
+            implementationClass = "dev.bitbakery.gradle.KotlinAndroidConventionPlugin"
         }
         register("kotlin-multiplatform") {
             id = "dev.bitbakery.gradle.kotlin.multiplatform"
