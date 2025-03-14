@@ -1,12 +1,18 @@
 rootProject.name = "boilerplate"
 
+val ideaVendor = System.getProperty("idea.vendor.name").orEmpty()
 include(
-    ":core",
-    ":shared",
-    ":android",
-    ":desktop",
     ":backend",
 )
+// Disable app modules when building from Intellij IDEA because it requires older AGP
+if (!ideaVendor.contains("jetbrains", ignoreCase = true)) {
+    include(
+        ":core",
+        ":shared",
+        ":android",
+        ":desktop",
+    )
+}
 
 pluginManagement {
     includeBuild("build-logic")
