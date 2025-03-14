@@ -4,7 +4,7 @@ agp = "8.9.0"
 minSdk = "24"
 targetSdk = "35"
 compileSdk = "35"
-buildTools = "35.0.0"
+buildTools = "35.0.1"
 arrow = "2.0.1"
 coil = "3.1.0"
 collections = "0.3.8"
@@ -74,13 +74,14 @@ ktor-client = [
     "ktor-serialization-kotlinx-json",
 ]
 ktor-server = [
-    "ktor-serialization-kotlinx-json",
     "ktor-server-auth",
     "ktor-server-config-yaml",
     "ktor-server-content-negotiation",
     "ktor-server-core",
     "ktor-server-engine",
+    "ktor-server-openapi",
     "ktor-server-resources",
+    "ktor-serialization-kotlinx-json",
 ]
 
 [libraries]
@@ -130,6 +131,7 @@ ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
 ktor-server-engine = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version.ref = "ktor" }
 ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 logback = "ch.qos.logback:logback-classic:1.5.17"
@@ -142,6 +144,7 @@ sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "
 sqldelight-dialect-sqlite = { module = "app.cash.sqldelight:sqlite-3-38-dialect", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
+swagger-codegen = "io.swagger.codegen.v3:swagger-codegen-generators:1.0.56"
 turbine = "app.cash.turbine:turbine:1.2.0"
 # Build logic dependencies
 gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }

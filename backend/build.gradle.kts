@@ -37,4 +37,5 @@ dependencies {
     implementation(libs.kotlininject.anvil.runtime.optional)
 
     implementation(libs.sqldelight.jvm)
+    implementation(libs.swagger.codegen)
 }

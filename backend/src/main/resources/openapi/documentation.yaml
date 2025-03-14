@@ -1,0 +1,89 @@
+openapi: "3.1.0"
+
+info:
+  title: "boilerplate API"
+  description: "boilerplate API"
+  version: "0.1.0"
+
+servers:
+- url: "https://localhost:8080"
+  description: Local development server
+
+paths:
+  /posts:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema: {}
+  /posts/{postId}:
+    get:
+      description: ""
+      parameters:
+      - name: "postId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/Post"
+
+components:
+  schemas:
+    Uuid:
+      type: "object"
+      properties:
+        mostSignificantBits:
+          type: "integer"
+          format: "int64"
+        leastSignificantBits:
+          type: "integer"
+          format: "int64"
+      required:
+      - "mostSignificantBits"
+      - "leastSignificantBits"
+    Instant:
+      type: "object"
+      properties: {}
+    User:
+      type: "object"
+      properties: {}
+    Post:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        uuid:
+          $ref: "#/components/schemas/Uuid"
+        title:
+          type: "string"
+        content:
+          type: "string"
+        createdAt:
+          $ref: "#/components/schemas/Instant"
+        user:
+          $ref: "#/components/schemas/User"
+        likeCount:
+          type: "integer"
+          format: "int64"
+        commentCount:
+          type: "integer"
+          format: "int64"
+      required:
+      - "id"
+      - "uuid"
+      - "title"
+      - "content"
+      - "createdAt"
+      - "user"
+      - "likeCount"
+      - "commentCount"
