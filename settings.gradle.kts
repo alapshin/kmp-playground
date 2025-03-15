@@ -10,7 +10,7 @@ if (!ideaVendor.contains("jetbrains", ignoreCase = true)) {
         ":core",
         ":shared",
         ":android",
-        ":desktop",
+//        ":desktop",
     )
 }
 
@@ -38,7 +38,6 @@ dependencyResolutionManagement {
                 includeGroupByRegex(".*android.*")
             }
         }
-        mavenLocal()
         mavenCentral()
         // Needed for Requery sqlite dependency
         maven(url = "https://www.jitpack.io")
