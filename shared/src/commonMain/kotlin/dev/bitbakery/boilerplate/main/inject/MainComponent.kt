@@ -1,6 +1,6 @@
 package dev.bitbakery.boilerplate.main.inject
 
-import dev.bitbakery.boilerplate.arch.ViewModelPair
+import dev.bitbakery.boilerplate.viewmodel.ViewModelPair
 import dev.bitbakery.boilerplate.main.view.MainViewModel
 import me.tatarka.inject.annotations.IntoMap
 import me.tatarka.inject.annotations.Provides

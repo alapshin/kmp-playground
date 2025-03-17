@@ -21,17 +21,13 @@ plugins {
 dependencies {
     kspAndroid(libs.kotlininject.compiler)
     kspAndroid(libs.kotlininject.anvil.compiler)
-    kspAndroid(libs.kotlininject.viewmodel.compiler)
     kspAndroidTest(libs.kotlininject.compiler)
     kspAndroidTest(libs.kotlininject.anvil.compiler)
-    kspAndroidTest(libs.kotlininject.viewmodel.compiler)
 
     kspDesktop(libs.kotlininject.compiler)
     kspDesktop(libs.kotlininject.anvil.compiler)
-    kspDesktop(libs.kotlininject.viewmodel.compiler)
     kspDesktopTest(libs.kotlininject.compiler)
     kspDesktopTest(libs.kotlininject.anvil.compiler)
-    kspDesktopTest(libs.kotlininject.viewmodel.compiler)
 }
 
 kotlin {
@@ -63,8 +59,6 @@ kotlin {
                 implementation(libs.kotlininject.runtime)
                 implementation(libs.kotlininject.anvil.runtime)
                 implementation(libs.kotlininject.anvil.runtime.optional)
-                implementation(libs.kotlininject.viewmodel.runtime)
-                implementation(libs.kotlininject.viewmodel.runtime.compose)
 
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.collections)
