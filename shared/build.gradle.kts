@@ -54,14 +54,11 @@ kotlin {
                 implementation(compose.uiTooling)
                 implementation(compose.components.resources)
 
-                implementation(libs.compose.viewmodel)
-                implementation(libs.compose.navigation)
-
-                implementation(libs.androidx.datastore.preferences)
-
                 implementation(libs.bundles.arrow)
+                implementation(libs.androidx.viewmodel)
+                implementation(libs.androidx.datastore.preferences)
                 implementation(libs.bundles.coil)
-
+                implementation(libs.compose.navigation)
                 implementation(libs.kermit)
                 implementation(libs.kotlininject.runtime)
                 implementation(libs.kotlininject.anvil.runtime)
@@ -96,6 +93,7 @@ kotlin {
                 implementation(libs.sqldelight.jvm)
             }
         }
+        desktopMain
 
         androidMain {
             dependencies {

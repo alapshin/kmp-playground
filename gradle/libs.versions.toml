@@ -6,11 +6,12 @@ targetSdk = "35"
 compileSdk = "35"
 buildTools = "35.0.1"
 arrow = "2.0.1"
+androidx-viewmodel = "2.8.7"
 coil = "3.1.0"
 collections = "0.3.8"
 compose-multiplatform = "1.7.3"
 compose-navigation = "2.9.0-alpha14"
-compose-viewmodel = "2.8.4"
+compose-viewmodel = "2.8.7"
 compose-rules = "0.4.22"
 coroutines = "1.10.1"
 datastore = "1.1.3"
@@ -89,11 +90,11 @@ androidx-activity-compose = "androidx.activity:activity-compose:1.10.1"
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
+androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-viewmodel" }
 coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-cache-control = { module = "io.coil-kt.coil3:coil-network-cache-control", version.ref = "coil" }
 compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
-compose-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
 detekt-rules-arrow = "com.wolt.arrow.detekt:rules:0.5.0"
 detekt-rules-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "compose-rules" }
 desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.1.5"
