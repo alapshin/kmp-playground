@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.injectedViewModel
 import dev.bitbakery.boilerplate.theme.spacing
+import dev.bitbakery.boilerplate.viewmodel.injectedViewModel
 
 @Composable
 fun PostListScreen(

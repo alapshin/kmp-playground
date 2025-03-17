@@ -3,9 +3,9 @@ package dev.bitbakery.boilerplate.app
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import coil3.compose.setSingletonImageLoaderFactory
-import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.LocalViewModelFactoryOwner
-import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.ViewModelFactoryOwner
 import dev.bitbakery.boilerplate.image.inject.ImageLoaderFactory
+import dev.bitbakery.boilerplate.viewmodel.LocalViewModelFactoryOwner
+import dev.bitbakery.boilerplate.viewmodel.ViewModelFactoryOwner
 
 @Composable
 fun App(

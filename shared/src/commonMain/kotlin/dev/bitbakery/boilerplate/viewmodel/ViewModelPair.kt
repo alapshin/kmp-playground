@@ -1,4 +1,4 @@
-package dev.bitbakery.boilerplate.arch
+package dev.bitbakery.boilerplate.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlin.reflect.KClass

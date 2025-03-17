@@ -2,8 +2,8 @@ package dev.bitbakery.boilerplate.inject
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
-import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.ViewModelFactoryOwner
 import dev.bitbakery.boilerplate.image.inject.ImageLoaderFactory
+import dev.bitbakery.boilerplate.viewmodel.ViewModelFactoryOwner
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ForScope

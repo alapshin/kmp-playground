@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.teobaranga.kotlin.inject.viewmodel.runtime.compose.injectedViewModel
 import dev.bitbakery.boilerplate.main.view.MainEvent
 import dev.bitbakery.boilerplate.main.view.MainViewModel
 import dev.bitbakery.boilerplate.navigation.AppBar
@@ -17,6 +16,7 @@ import dev.bitbakery.boilerplate.navigation.AppNavHost
 import dev.bitbakery.boilerplate.navigation.isTopLevel
 import dev.bitbakery.boilerplate.navigation.navigateTo
 import dev.bitbakery.boilerplate.theme.AppTheme
+import dev.bitbakery.boilerplate.viewmodel.injectedViewModel
 
 @Composable
 fun BoilerplateApp(
