@@ -3,12 +3,8 @@ package dev.bitbakery.gradle
 import dev.bitbakery.gradle.ext.configureKotlinMultiplatform
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 class KotlinMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -21,6 +17,8 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
             if (pluginManager.hasPlugin("com.android.library")) {
                 androidTarget()
             }
+
+            applyDefaultHierarchyTemplate()
 
             targets.configureEach {
                 compilations.configureEach {
