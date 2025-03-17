@@ -49,11 +49,11 @@ internal fun Project.configureKotlinMultiplatform() {
             configureKotlinCompilerOptions()
         }
 
-        sourceSets.named("commonMain").configure {
+        sourceSets.named("commonMain") {
             kotlin.srcDir("$kspGeneratedDir/metadata/commonMain/kotlin")
         }
 
-        sourceSets.named("androidMain").configure {
+        sourceSets.named("androidMain") {
             project.android {
                 sourceSets.named("debug") {
                     kotlin.srcDir("$kspGeneratedDir/android/androidDebug/kotlin")
@@ -64,9 +64,9 @@ internal fun Project.configureKotlinMultiplatform() {
             }
         }
 
-//        sourceSets.named("desktopMain").configure {
-//            kotlin.srcDir("$kspGeneratedDir/desktop/desktopMain/kotlin")
-//        }
+        sourceSets.named("desktopMain") {
+            kotlin.srcDir("$kspGeneratedDir/desktop/desktopMain/kotlin")
+        }
     }
 
     // Needed to work around incorrect task dependencies for ksp tasks similar to
