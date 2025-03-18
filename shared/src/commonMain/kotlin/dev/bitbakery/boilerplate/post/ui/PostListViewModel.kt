@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import co.touchlab.kermit.Logger
 import dev.bitbakery.boilerplate.arch.MolecularViewModel
-import dev.bitbakery.boilerplate.base.DataState
+import dev.bitbakery.boilerplate.base.Result
 import dev.bitbakery.boilerplate.post.data.PostRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.datetime.TimeZone
@@ -25,15 +25,15 @@ class PostListViewModel(
 
         return datastate.let { s ->
             when (s) {
-                is DataState.Initial -> PostListState()
-                is DataState.Loading -> PostListState(progress = true)
-                is DataState.Failure -> {
+                is Result.Initial -> PostListState()
+                is Result.Loading -> PostListState(progress = true)
+                is Result.Failure -> {
                     Logger.e {
                         s.error.toString()
                     }
                     PostListState()
                 }
-                is DataState.Success ->
+                is Result.Success ->
                     PostListState(
                         items =
                             s.value.map {

@@ -1,7 +1,7 @@
 package dev.bitbakery.boilerplate.post.data
 
-import dev.bitbakery.boilerplate.base.DataError
-import dev.bitbakery.boilerplate.base.DataState
+import dev.bitbakery.boilerplate.base.Error
+import dev.bitbakery.boilerplate.base.Result
 import dev.bitbakery.boilerplate.base.toDataState
 import dev.bitbakery.boilerplate.post.domain.PostDomainModel
 import kotlinx.coroutines.flow.Flow
@@ -19,12 +19,12 @@ class PostRepositoryImpl(
     private val listStore: PostListStore,
     private val detailStore: PostDetailStore,
 ) : PostRepository {
-    override fun getPosts(): Flow<DataState<DataError, List<PostDomainModel>>> =
+    override fun getPosts(): Flow<Result<Error, List<PostDomainModel>>> =
         listStore
             .stream(StoreReadRequest.fresh(key = Unit, fallBackToSourceOfTruth = false))
             .map { result -> result.toDataState() }
 
-    override fun getPost(postId: Long): Flow<DataState<DataError, PostDomainModel>> =
+    override fun getPost(postId: Long): Flow<Result<Error, PostDomainModel>> =
         detailStore
             .stream(StoreReadRequest.fresh(key = postId, fallBackToSourceOfTruth = false))
             .map { result -> result.toDataState() }

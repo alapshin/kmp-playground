@@ -2,16 +2,16 @@ package dev.bitbakery.boilerplate.base
 
 import dev.bitbakery.boilerplate.network.ApiError
 
-sealed interface DataError {
-    data class UnknownError(
+sealed interface Error {
+    data class Unknown(
         val throwable: Throwable?,
-    ) : DataError
+    ) : Error
 
-    data class NetworkError(
+    data class Network(
         val error: ApiError,
-    ) : DataError
+    ) : Error
 
-    data class DatabaseError(
+    data class Database(
         val throwable: Throwable,
-    ) : DataError
+    ) : Error
 }
