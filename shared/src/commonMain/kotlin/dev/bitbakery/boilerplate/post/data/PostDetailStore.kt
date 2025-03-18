@@ -49,7 +49,16 @@ class PostDetailStoreFactory(
                     .asFlow()
                     .mapToOne(Dispatchers.IO)
             },
-            writer = { key, post -> },
+            writer = { key, post ->
+                database.postQueries.insert(
+                    id = post.id,
+                    uuid = post.uuid.toString(),
+                    user_id = post.user.id,
+                    title = post.title,
+                    content = post.content,
+                    created_at = post.createdAt.toString(),
+                )
+            },
         )
 
     private fun createConverter(): Converter<PostNetworkModel, PostDatabaseModel, PostDomainModel> =

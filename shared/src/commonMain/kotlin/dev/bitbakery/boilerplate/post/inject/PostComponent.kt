@@ -40,6 +40,6 @@ interface PostComponent {
 
     @IntoMap
     @Provides
-    fun providePostDetailViewModel(factory: (postId: Int) -> PostDetailViewModel): Pair<KClass<out ViewModel>, Any> =
+    fun providePostDetailViewModel(factory: (postId: Long) -> PostDetailViewModel): Pair<KClass<out ViewModel>, Any> =
         PostDetailViewModel::class to PostDetailViewModel.Factory(factory)
 }
