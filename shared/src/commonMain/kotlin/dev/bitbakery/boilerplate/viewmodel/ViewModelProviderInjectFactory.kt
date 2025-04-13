@@ -22,20 +22,20 @@ class ViewModelProviderInjectFactory(
      * Map of simple ViewModel factories for ViewModels that have no assisted dependencies.
      */
     private val viewModelMap: Map<KClass<out ViewModel>, () -> ViewModel> = emptyMap(),
-
     /**
      * Map of ViewModel factories that just require a [SavedStateHandle].
      */
     private val savedStateViewModelMap: Map<KClass<out ViewModel>, (SavedStateHandle) -> ViewModel> = emptyMap(),
-
     /**
      * Map of advanced ViewModel factories that require one or more assisted dependencies outside of [SavedStateHandle].
      */
     private val viewModelFactoryMap: Map<KClass<out ViewModel>, Any> = emptyMap(),
 ) : ViewModelProvider.Factory {
-
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
+    override fun <T : ViewModel> create(
+        modelClass: KClass<T>,
+        extras: CreationExtras,
+    ): T {
         return viewModelMap[modelClass]?.invoke() as T?
             ?: savedStateViewModelMap[modelClass]?.invoke(extras.createSavedStateHandle()) as? T
             ?: run {

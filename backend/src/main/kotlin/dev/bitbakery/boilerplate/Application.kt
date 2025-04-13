@@ -24,8 +24,8 @@ fun Application.configureRouting(component: ApplicationComponent) {
     component.postRouting.configure(this)
     routing {
         openAPI(
-            path="openapi",
-            swaggerFile = "openapi/documentation.yaml"
+            path = "openapi",
+            swaggerFile = "openapi/documentation.yaml",
         )
     }
 }

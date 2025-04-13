@@ -28,9 +28,10 @@ class PostDetailViewModel(
 
     @Composable
     override fun state(events: Flow<PostDetailEvent>): PostDetailState {
-        val flow = remember {
-            repository.getPost(postId)
-        }
+        val flow =
+            remember {
+                repository.getPost(postId)
+            }
         val result by flow.collectAsState(null)
 
         return when (val r = result) {

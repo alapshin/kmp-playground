@@ -16,5 +16,4 @@ interface ViewModelComponent {
 
     @Provides
     fun provideViewModelProviderFactory(factory: ViewModelProviderInjectFactory): ViewModelProvider.Factory = factory
-
 }

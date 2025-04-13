@@ -11,18 +11,19 @@ import dev.bitbakery.boilerplate.viewmodel.injectedViewModel
 @Suppress("UnusedParameter")
 fun PostDetailScreen(
     modifier: Modifier = Modifier,
-    viewModel: PostDetailViewModel = injectedViewModel<PostDetailViewModel, PostDetailViewModel.Factory>(
-        creationCallback = { factory -> factory(1) },
-    ),
+    viewModel: PostDetailViewModel =
+        injectedViewModel<PostDetailViewModel, PostDetailViewModel.Factory>(
+            creationCallback = { factory -> factory(1) },
+        ),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    when(val s = state) {
+    when (val s = state) {
         is PostDetailState.Loading -> {
         }
         is PostDetailState.Success -> {
             Text(
-                text = s.post.content
+                text = s.post.content,
             )
         }
         else -> {}

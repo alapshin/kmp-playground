@@ -2,7 +2,6 @@ package dev.bitbakery.boilerplate.post.inject
 
 import androidx.lifecycle.ViewModel
 import de.jensklingenberg.ktorfit.Ktorfit
-import dev.bitbakery.boilerplate.viewmodel.ViewModelPair
 import dev.bitbakery.boilerplate.post.data.PostApi
 import dev.bitbakery.boilerplate.post.data.PostDetailStore
 import dev.bitbakery.boilerplate.post.data.PostDetailStoreFactory
@@ -12,6 +11,7 @@ import dev.bitbakery.boilerplate.post.data.PostRepository
 import dev.bitbakery.boilerplate.post.data.createPostApi
 import dev.bitbakery.boilerplate.post.ui.PostDetailViewModel
 import dev.bitbakery.boilerplate.post.ui.PostListViewModel
+import dev.bitbakery.boilerplate.viewmodel.ViewModelPair
 import me.tatarka.inject.annotations.IntoMap
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
